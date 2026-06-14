@@ -1,0 +1,9 @@
+{
+  "name": "apparel-shorts-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "puppeteer": "^25.1.0"
+  }
+}

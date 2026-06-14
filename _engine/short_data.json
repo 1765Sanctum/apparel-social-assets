@@ -1,0 +1,75 @@
+{
+  "_comment": "1765 Apparel autonomous shorts bank. Each entry renders via the proven kinetic-typography template (short_template_dd.html) -> mp4 -> posts as IG Reel + FB video. The engine cycles this bank on the pm slot; add entries to extend. Voice = bold/POV; every claim maps to locked brand facts (American-made dirt-to-shirt, Bayside 5100 6.1oz, $44.99, veteran-owned, 1765=Stamp Act). Born 2026-06-13.",
+  "cta": {"brand": "God & Country", "kicker": "American-Made · Dirt to Shirt", "domain": "1765APPARELCO.COM", "dur": 3.2},
+  "shorts": [
+    {
+      "key": "its-not-merch",
+      "ig_caption": "It's not merch. It's a uniform.\n\n1765 Apparel — God & Country. Grown, milled, cut, sewn, and printed in the USA. 6.1oz heavyweight Bayside 5100, built to outlast the season. No sweatshops. No imports dressed up as patriotism.\n\nWear what you believe → 1765apparelco.com\n#AmericanMade #MadeInUSA #GodAndCountry #PatrioticApparel #VeteranOwned #CatholicApparel #1765",
+      "fb_message": "It's not merch. It's a uniform — for the man who knows what he stands for. American-made, dirt to shirt, built to last.\nhttps://1765apparelco.com",
+      "beats": [
+        {"kicker": "READ THIS", "big": "It's not merch.", "dur": 3.0},
+        {"big": "It's a uniform.", "bigClass": "md", "sub": "For the man who knows what he stands for.", "dur": 3.2},
+        {"big": "Grown. Milled. Cut. Sewn. Printed.", "bigClass": "md", "sub": "Every step on American soil.", "dur": 3.4},
+        {"big": "No sweatshops. No shortcuts.", "bigClass": "md", "dur": 3.0},
+        {"quote": "You don't wear a logo. You wear a creed.", "dur": 3.2}
+      ]
+    },
+    {
+      "key": "honest-price",
+      "ig_caption": "Why isn't this a $12 shirt?\n\nBecause nobody ate the difference. US-grown cotton. Milled in America. Cut and sewn in America — by hands earning an American wage. 6.1oz heavyweight, built to outlast years, not a season.\n\nThe honest price → 1765apparelco.com\n#AmericanMade #MadeInUSA #GodAndCountry #DirtToShirt #VeteranOwned #1765",
+      "fb_message": "Why isn't this a $12 shirt? Because nobody ate the difference. American cotton, American mill, American hands. The honest price.\nhttps://1765apparelco.com",
+      "beats": [
+        {"kicker": "THE HONEST PRICE", "big": "Why isn't this a $12 shirt?", "bigClass": "md", "dur": 3.4},
+        {"big": "Because nobody ate the difference.", "bigClass": "md", "dur": 3.2},
+        {"big": "Grown, milled, cut, sewn in America.", "bigClass": "md", "sub": "By hands earning an American wage.", "dur": 3.6},
+        {"big": "A cheap shirt hides the bill.", "bigClass": "md", "sub": "This one shows it.", "dur": 3.2},
+        {"quote": "Buy once. Keep it.", "dur": 2.8}
+      ]
+    },
+    {
+      "key": "appeal-to-heaven",
+      "ig_caption": "When there's no earthly court left to hear you — one appeal still stands open.\n\nAn Appeal to Heaven. The Pine Tree banner of the Revolution; Locke's last resort, carried into the founding fight. Now a back-print on American-made heavyweight cotton.\n\n→ 1765apparelco.com\n#AppealToHeaven #AmericanMade #MadeInUSA #GodAndCountry #1765 #America250",
+      "fb_message": "An Appeal to Heaven — the Pine Tree banner of the Revolution. When no earthly court will hear you, one appeal still stands open. American-made.\nhttps://1765apparelco.com",
+      "beats": [
+        {"kicker": "AN APPEAL TO HEAVEN", "big": "When no court will hear you —", "bigClass": "md", "dur": 3.4},
+        {"big": "one appeal still stands open.", "bigClass": "md", "dur": 3.2},
+        {"big": "The Pine Tree banner.", "sub": "Carried into the founding fight.", "dur": 3.2},
+        {"quote": "Some things you don't argue. You appeal them higher.", "dur": 3.6}
+      ]
+    },
+    {
+      "key": "christus-rex",
+      "ig_caption": "He doesn't ask for a corner of your life. He claims the throne.\n\nChristus Rex — King of Nations, rendered as the Church has always proclaimed Him. Back-printed on American-made 6.1oz heavyweight cotton. Veteran-owned.\n\nWear the conviction → 1765apparelco.com\n#ChristusRex #CatholicApparel #GodAndCountry #AmericanMade #MadeInUSA #1765",
+      "fb_message": "Christus Rex — King of Nations. He doesn't ask for a corner of your life; He claims the throne. American-made, veteran-owned.\nhttps://1765apparelco.com",
+      "beats": [
+        {"kicker": "CHRISTUS REX", "big": "King of Nations.", "dur": 3.0},
+        {"big": "Not a philosophy. Not a mascot.", "bigClass": "md", "dur": 3.2},
+        {"big": "A King — enthroned.", "sub": "As the Church has always proclaimed Him.", "dur": 3.4},
+        {"quote": "He doesn't ask for a corner. He claims the throne.", "dur": 3.6}
+      ]
+    },
+    {
+      "key": "why-1765",
+      "ig_caption": "Why 1765?\n\nThe year the Crown taxed the colonies without a single American voice — and the colonies answered with the first organized American \"no.\" Eleven years before the Declaration, the fuse was already lit.\n\nWe don't wear a date. We wear a decision → 1765apparelco.com\n#1765 #America250 #AmericanMade #GodAndCountry #MadeInUSA #Patriotic",
+      "fb_message": "Why 1765? The year the fuse was lit — the Stamp Act, and the first organized American \"no.\" We don't wear a date. We wear a decision.\nhttps://1765apparelco.com",
+      "beats": [
+        {"kicker": "THE YEAR ON THE SEAL", "big": "Why 1765?", "dur": 3.0},
+        {"big": "The Crown taxed the colonies.", "bigClass": "md", "sub": "Not one American voice in the decision.", "dur": 3.4},
+        {"big": "The answer: the first American “no.”", "bigClass": "md", "dur": 3.2},
+        {"big": "Eleven years before the Declaration.", "bigClass": "md", "sub": "The fuse was already lit.", "dur": 3.4},
+        {"quote": "We don't wear a date. We wear a decision.", "dur": 3.2}
+      ]
+    },
+    {
+      "key": "made-the-hard-way",
+      "ig_caption": "Anyone can print a flag on an import. We did it the hard way.\n\nDirt to shirt, American: US-grown cotton, milled, cut, sewn, and printed on home soil. 6.1oz heavyweight built to outlast the season. One 1765 house — God & Country here, God & Men at @1765sanctum.\n\n→ 1765apparelco.com\n#AmericanMade #MadeInUSA #DirtToShirt #GodAndCountry #VeteranOwned #1765",
+      "fb_message": "Anyone can print a flag on an import. We did it the hard way — dirt to shirt, American at every step.\nhttps://1765apparelco.com",
+      "beats": [
+        {"kicker": "MADE THE HARD WAY", "big": "Anyone can print a flag.", "bigClass": "md", "dur": 3.2},
+        {"big": "On an import.", "sub": "We didn't.", "dur": 3.0},
+        {"big": "Dirt to shirt. American at every step.", "bigClass": "md", "dur": 3.4},
+        {"quote": "The flag on the back means more when the shirt is honest.", "dur": 3.6}
+      ]
+    }
+  ]
+}

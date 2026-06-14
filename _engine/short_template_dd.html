@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #0C0E12; }
+#stage {
+  position: relative; width: 1080px; height: 1920px; overflow: hidden;
+  background: radial-gradient(ellipse at 50% 32%, #1D212A 0%, #12151B 52%, #0B0D11 100%);
+  color: #EDE3CE; font-family: 'EB Garamond', serif;
+}
+.shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,13,17,.82) 0%, rgba(11,13,17,.45) 38%, rgba(11,13,17,.55) 62%, rgba(11,13,17,.92) 100%); }
+.frame { position: absolute; inset: 44px; border: 1.5px solid rgba(198,163,90,.5); }
+.frame::after { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(198,163,90,.22); }
+.watermark { position: absolute; right: -40px; bottom: -120px; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 560px; line-height: 1; color: rgba(198,163,90,.045); }
+.content { position: absolute; inset: 120px 110px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.kicker { font-weight: 500; text-transform: uppercase; letter-spacing: .38em; font-size: 34px; color: #C6A35B; }
+.rule { width: 140px; height: 2px; margin: 52px auto; background: linear-gradient(90deg, transparent, #C6A35B 18%, #C6A35B 82%, transparent); }
+.big { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 128px; line-height: 1.12; color: #F0E7D2; max-width: 880px; text-wrap: balance; }
+.big.md { font-size: 96px; }
+.sub { font-style: italic; font-size: 52px; color: #D8CBAE; margin-top: 56px; max-width: 820px; line-height: 1.42; }
+.quote { font-style: italic; font-weight: 500; font-size: 84px; line-height: 1.36; color: #F0E7D2; max-width: 860px; text-wrap: balance; }
+.sealimg { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; object-position: 46% 44%; box-shadow: 0 0 0 2px rgba(198,163,90,.5), 0 0 80px rgba(198,120,40,.28); margin-bottom: 70px; }
+.brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 118px; color: #F0E7D2; }
+.domain { font-size: 50px; letter-spacing: .22em; color: #C6A35B; margin-top: 52px; }
+.layer { position: absolute; inset: 0; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+// Data-driven kinetic-typography short. window.SHORT_DATA = {beats:[{dur,kicker?,big?,bigClass?,sub?,quote?}], cta:{brand,kicker,domain,dur}}.
+// Reuses the proven Why-1765 / Marks-Decoded look; only the beats are parameterized.
+const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+const ez = t => t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2) / 2;
+const fadeIn  = (t, s, d) => ez(clamp((t - s) / d, 0, 1));
+const fadeOut = (t, s, d) => 1 - ez(clamp((t - s) / d, 0, 1));
+const inout = (t, s0, e0, s1, e1) => fadeIn(t, s0, e0) * fadeOut(t, s1, e1);
+const IN = 0.7, OUT = 0.6, OVERLAP = 0.5, START = 0.15, CTA_GAP = 0.35;
+
+function textBeat({ kicker, big, bigClass = '', sub, quote }, alpha) {
+  const ty = (1 - alpha) * 26;
+  let inner = '';
+  if (kicker) inner += `<div class="kicker">${kicker}</div><div class="rule"></div>`;
+  if (big) inner += `<div class="big ${bigClass}">${big}</div>`;
+  if (quote) inner += `<div class="quote">&ldquo;${quote}&rdquo;</div>`;
+  if (sub) inner += `<div class="sub">${sub}</div>`;
+  return `<div class="layer" style="opacity:${alpha}"><div class="content" style="transform:translateY(${ty}px)">${inner}</div></div>`;
+}
+
+function beatTimes() {
+  const D = window.SHORT_DATA; const times = []; let start = START;
+  for (const b of D.beats) { const end = start + b.dur; times.push([start, end]); start = end - OVERLAP; }
+  const ctaStart = (times.length ? times[times.length-1][1] : START) + CTA_GAP;
+  return { times, ctaStart, total: ctaStart + (D.cta.dur || 3.0) };
+}
+window.TOTAL_DURATION = () => beatTimes().total;
+
+window.renderFrame = function (t) {
+  const D = window.SHORT_DATA;
+  const { times, ctaStart } = beatTimes();
+  let h = '<div class="watermark">1765</div><div class="frame"></div>';
+  D.beats.forEach((b, i) => {
+    const [s, e] = times[i];
+    const a = inout(t, s, IN, e, OUT);
+    if (a > 0) h += textBeat(b, a);
+  });
+  const ac = fadeIn(t, ctaStart, 0.8);
+  if (ac > 0) {
+    h += `<div class="layer" style="opacity:${ac}"><div class="content">
+      <img class="sealimg" src="assets/seal.png">
+      <div class="brand">${D.cta.brand}</div>
+      <div class="rule"></div>
+      <div class="kicker" style="font-size:38px;white-space:nowrap">${D.cta.kicker}</div>
+      <div class="domain">${D.cta.domain}</div>
+    </div></div>`;
+  }
+  stage.innerHTML = h;
+  return document.fonts.ready.then(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
+};
+</script>
+</body>
+</html>

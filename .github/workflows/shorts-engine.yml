@@ -1,0 +1,69 @@
+name: shorts-engine
+
+# AUTONOMOUS off-machine Shorts/Reels generator for 1765 Apparel (pm lane).
+# Daily 22:05 UTC (6:05 PM ET): renders the next kinetic-typography short from
+# _engine/short_data.json (proven Why-1765 look, data-driven) with puppeteer+ffmpeg,
+# commits the mp4 here (public -> raw URL Meta can fetch), then posts it as an IG Reel
+# + FB video, and advances the cursor. Self-contained: no cross-repo writes.
+# Renders + posts genuinely; fails LOUD on a real error. Born 2026-06-13.
+# STOP: gh workflow disable shorts-engine.yml.
+
+on:
+  schedule:
+    - cron: '5 22 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: shorts-engine
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  short:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install ffmpeg + puppeteer (chromium)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          cd _engine && npm install --no-audit --no-fund puppeteer
+          node -e "console.log('chromium:', require('puppeteer').executablePath())"
+
+      - name: Render the next short
+        run: python _engine/shorts_render.py
+
+      - name: Host the mp4 (commit + push so the raw URL is live)
+        run: |
+          git config user.name "sanctum-ops"
+          git config user.email "ops@1765sanctumco.com"
+          git add shorts/
+          git diff --cached --quiet && { echo "no mp4 produced"; exit 1; }
+          git commit -q -m "shorts-engine: render $(date -u +%FT%TZ)"
+          git pull --rebase -q origin main || true
+          git push -q origin HEAD:main
+
+      - name: Post IG Reel + FB video
+        env:
+          APPAREL_META_SYSTEM_USER_TOKEN: ${{ secrets.APPAREL_META_SYSTEM_USER_TOKEN }}
+          APPAREL_META_PAGE_TOKEN: ${{ secrets.APPAREL_META_PAGE_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+        run: python _engine/shorts_post.py
+
+      - name: Commit posted state
+        run: |
+          git add _engine/shorts_state.json
+          git diff --cached --quiet && exit 0
+          git commit -q -m "shorts-engine: posted state $(date -u +%FT%TZ)"
+          git pull --rebase -q origin main || true
+          git push -q origin HEAD:main
