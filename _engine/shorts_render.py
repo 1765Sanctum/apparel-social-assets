@@ -32,5 +32,6 @@ raw = f"https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main
 (HERE / "_meta.json").write_text(json.dumps({
     "key": key, "idx": idx, "ig_caption": short["ig_caption"],
     "fb_message": short["fb_message"], "mp4": out_rel, "raw_url": raw,
+    "cover_url": short.get("cover_url", ""),
 }, indent=2), encoding="utf-8")
 print(f"RENDERED {out_rel}  ->  {raw}")

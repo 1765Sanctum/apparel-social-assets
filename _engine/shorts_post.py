@@ -57,9 +57,13 @@ else:
 
 tok = page_token()
 
-# IG Reel (async container -> poll FINISHED -> publish)
-cid = post(f"{IG_ID}/media", {"media_type": "REELS", "video_url": raw,
-                              "caption": meta["ig_caption"], "share_to_feed": "true", "access_token": tok})["id"]
+# IG Reel (async container -> poll FINISHED -> publish). cover_url = the design's mockup
+# (JPEG, 1080x1920, center-crop) so the grid shows the shirt, not a black opening frame.
+reel = {"media_type": "REELS", "video_url": raw, "caption": meta["ig_caption"],
+        "share_to_feed": "true", "access_token": tok}
+if meta.get("cover_url"):
+    reel["cover_url"] = meta["cover_url"]
+cid = post(f"{IG_ID}/media", reel)["id"]
 deadline = time.time() + 480
 while time.time() < deadline:
     st = get(cid, {"fields": "status_code", "access_token": tok}).get("status_code")
