@@ -1,5 +1,5 @@
 {
-  "cursor": 4,
+  "cursor": 5,
   "posted": [
     {
       "key": "its-not-merch",
@@ -70,6 +70,13 @@
       "fb": "1029283489626521",
       "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/christus-rex_20260621.mp4",
       "at": "2026-06-21T23:27:09Z"
+    },
+    {
+      "key": "why-1765",
+      "ig": "18152847742493782",
+      "fb": "1333115031600452",
+      "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/why-1765_20260622.mp4",
+      "at": "2026-06-22T23:41:26Z"
     }
   ]
 }
