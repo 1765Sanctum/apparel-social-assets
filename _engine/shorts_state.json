@@ -1,5 +1,5 @@
 {
-  "cursor": 1,
+  "cursor": 2,
   "posted": [
     {
       "key": "its-not-merch",
@@ -133,6 +133,13 @@
       "fb": "2080219799511493",
       "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/its-not-merch_20260630.mp4",
       "at": "2026-06-30T23:23:47Z"
+    },
+    {
+      "key": "honest-price",
+      "ig": "18187878562381705",
+      "fb": "1779561713415235",
+      "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/honest-price_20260701.mp4",
+      "at": "2026-07-01T23:26:44Z"
     }
   ]
 }
