@@ -1,5 +1,5 @@
 {
-  "cursor": 2,
+  "cursor": 3,
   "posted": [
     {
       "key": "its-not-merch",
@@ -140,6 +140,13 @@
       "fb": "1779561713415235",
       "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/honest-price_20260701.mp4",
       "at": "2026-07-01T23:26:44Z"
+    },
+    {
+      "key": "appeal-to-heaven",
+      "ig": "18218163601331336",
+      "fb": "1499645754688017",
+      "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/appeal-to-heaven_20260702.mp4",
+      "at": "2026-07-02T23:20:40Z"
     }
   ]
 }
