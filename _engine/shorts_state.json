@@ -1,5 +1,5 @@
 {
-  "cursor": 5,
+  "cursor": 6,
   "posted": [
     {
       "key": "its-not-merch",
@@ -161,6 +161,13 @@
       "fb": "3246282818905935",
       "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/why-1765_20260704.mp4",
       "at": "2026-07-04T23:08:04Z"
+    },
+    {
+      "key": "made-the-hard-way",
+      "ig": "18107895643801421",
+      "fb": "1387821636601958",
+      "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/made-the-hard-way_20260705.mp4",
+      "at": "2026-07-05T23:13:59Z"
     }
   ]
 }
