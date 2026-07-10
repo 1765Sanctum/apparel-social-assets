@@ -1,5 +1,5 @@
 {
-  "cursor": 3,
+  "cursor": 4,
   "posted": [
     {
       "key": "its-not-merch",
@@ -189,6 +189,13 @@
       "fb": "1028824949545707",
       "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/appeal-to-heaven_20260709.mp4",
       "at": "2026-07-09T23:23:41Z"
+    },
+    {
+      "key": "christus-rex",
+      "ig": "18070613606708460",
+      "fb": "1543720190812563",
+      "raw": "https://raw.githubusercontent.com/1765Sanctum/apparel-social-assets/main/shorts/christus-rex_20260710.mp4",
+      "at": "2026-07-10T23:10:09Z"
     }
   ]
 }
